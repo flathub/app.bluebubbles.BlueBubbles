@@ -93,7 +93,7 @@ modules:
           - aarch64
         dest: bluebubbles
         url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.10.1%2B36/bluebubbles-linux-aarch64.tar
-        sha256: 560130465cdaa88fc633abffdc42874bbcc6da309131dca668ee9dfacbe3e312
+        sha256: e065db26981c5d10bb7e508df30f624723b97493be6746af92c3d5f9c3de4114
       - type: file
         path: app.bluebubbles.BlueBubbles.metainfo.xml
       - type: file
