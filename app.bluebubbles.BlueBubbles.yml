@@ -31,7 +31,6 @@ modules:
     sources:
       - type: git
         url: https://github.com/freedesktop/xorg-libXmu.git
-        tag: master
         commit: 4f0939d69a17d37be414d0de7ff717e92e7e2b11
   - name: wmctrl
     sources:
