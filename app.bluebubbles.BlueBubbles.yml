@@ -17,7 +17,6 @@ finish-args:
 modules:
   - 'shared-modules/libappindicator/libappindicator-gtk3-12.10.json'
   - 'shared-modules/dbus-glib/dbus-glib.json'
-  - 'shared-modules/libcanberra/libcanberra.json'
   - name: zenity
     buildsystem: meson
     sources:
