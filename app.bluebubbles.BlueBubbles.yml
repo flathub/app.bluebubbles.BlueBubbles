@@ -88,7 +88,7 @@ modules:
       - 'cp -r bluebubbles /app/'
       - 'chmod +x /app/bluebubbles/bluebubbles'
       # Manually set the app version
-      - 'touch /temp.json && jq ''.version = "1.11.100.0"'' /app/bluebubbles/data/flutter_assets/version.json > /temp.json && mv /temp.json /app/bluebubbles/data/flutter_assets/version.json'
+      - 'touch /temp.json && jq ''.version = "1.11.100.1"'' /app/bluebubbles/data/flutter_assets/version.json > /temp.json && mv /temp.json /app/bluebubbles/data/flutter_assets/version.json'
       - 'mkdir -p /app/bin'
       - 'ln -s /app/bluebubbles/bluebubbles /app/bin/bluebubbles'
       - 'install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/'
