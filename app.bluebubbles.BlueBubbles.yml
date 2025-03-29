@@ -19,8 +19,8 @@ finish-args:
   - --share=network
   - --filesystem=home
 modules:
-  - 'shared-modules/libappindicator/libappindicator-gtk3-12.10.json'
-  - 'shared-modules/dbus-glib/dbus-glib.json'
+  - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
+  - shared-modules/dbus-glib/dbus-glib.json
   - name: zenity
     buildsystem: meson
     sources:
@@ -45,7 +45,7 @@ modules:
   - name: objectbox
     buildsystem: simple
     build-commands:
-      - 'cp -r libobjectbox.so /app/lib/'
+      - cp -r libobjectbox.so /app/lib/
     sources:
       - type: archive
         only-arches:
@@ -85,7 +85,7 @@ modules:
       - name: nv-codec-headers
         no-autogen: true
         make-install-args:
-          - 'PREFIX=/app'
+          - PREFIX=/app
         sources:
           - type: git
             url: https://github.com/FFmpeg/nv-codec-headers.git
@@ -167,8 +167,8 @@ modules:
                   url-template: https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-$version.tar.gz
               - type: git
                 url: https://github.com/KhronosGroup/glslang.git
-                tag: 15.1.0
-                commit: 1062752a891c95b2bfeed9e356562d88f9df84ac
+                tag: 15.2.0
+                commit: 99ee11b0106b48f06fb9e2a324ba928b8316cc33
                 dest: third_party/glslang
                 x-checker-data:
                   type: git
@@ -178,9 +178,9 @@ modules:
     only_arches:
       - x86_64
     build-commands:
-      - 'mkdir -p /app/bin'
-      - 'cp -r fmedia-1 /app/bin'
-      - 'ln -s /app/bin/fmedia-1/fmedia /app/bin/fmedia'
+      - mkdir -p /app/bin
+      - cp -r fmedia-1 /app/bin
+      - ln -s /app/bin/fmedia-1/fmedia /app/bin/fmedia
     sources:
       - type: archive
         dest: fmedia-1
@@ -189,8 +189,8 @@ modules:
   - name: arp
     buildsystem: simple
     build-commands:
-      - 'yes "" | make arp'
-      - 'install -Dm755 arp /app/bin/arp'
+      - yes "" | make arp
+      - install -Dm755 arp /app/bin/arp
     sources:
       - type: git
         url: https://github.com/ecki/net-tools.git
@@ -199,32 +199,33 @@ modules:
   - name: bluebubbles
     buildsystem: simple
     build-commands:
-      - 'cp -r bluebubbles /app/'
-      - 'mkdir -p /app/bin'
-      - 'ln -s /app/bluebubbles/bluebubbles /app/bin/bluebubbles'
-      - 'install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/'
-      - 'install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png'
-      - 'install -Dm644 app.bluebubbles.BlueBubbles.desktop -t /app/share/applications/'
+      - cp -r bluebubbles /app/
+      - mkdir -p /app/bin
+      - ln -s /app/bluebubbles/bluebubbles /app/bin/bluebubbles
+      - install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/
+      - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
+      - install -Dm644 app.bluebubbles.BlueBubbles.desktop -t /app/share/applications/
     sources:
       - type: archive
         only_arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.1%2B71-desktop/bluebubbles-linux-x86_64.tar
-        sha256: a78ae34ae9fb2b818cdedafcc21d0f8966bf711b2aebbf5afd2c7f9f1e95d23b
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.3%2B72-desktop/bluebubbles-linux-x86_64.tar
+        sha256: 83e3598ebfd708a45ee974ce932b8fccf428af90b1760b82fe50ef5aabb7363c
       - type: archive
         only_arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.1%2B71-desktop/bluebubbles-linux-aarch64.tar
-        sha256: f1e21e852746cdd81deabd22a547dcd051ee852e269f833392e9b0cd648cd011
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.3%2B72-desktop/bluebubbles-linux-aarch64.tar
+        sha256: 5d6d9484956c4feea3448bf6e17f1aebc88ba2f7b277f46ad8a740433e4db5c4
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/cb0a54d962964e4f85670c398118af2ba87bafd0/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: 63035a333e5e04078bd9246f8287ffbd5c35aebf72b31e1b67719006947fc9c5
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/6f522cb288ddf9d8ef001370195566d6c1b386ee/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: d3c867e43f6264cad702dfbef0add7aed7307d9b730d514ee14a60d8d513012a
       - type: file
-        path: icons/128x128.png
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.3%2B72-desktop/flatpak/icon/128x128.png
+        sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.1%2B71-desktop/flatpak/app.bluebubbles.BlueBubbles.desktop
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.3%2B72-desktop/flatpak/app.bluebubbles.BlueBubbles.desktop
         sha256: 28f10e1c68a5e27da72cb29619678d3dfdd4b38a753a2815a80d87972a380eda
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
