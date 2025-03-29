@@ -219,7 +219,7 @@ modules:
         url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.3%2B72-desktop/bluebubbles-linux-aarch64.tar
         sha256: 5d6d9484956c4feea3448bf6e17f1aebc88ba2f7b277f46ad8a740433e4db5c4
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.3%2B72-desktop/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/6f522cb288ddf9d8ef001370195566d6c1b386ee/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
         sha256: 31465f273937f52b0e45f5f3fb3b506b3b0030d24bb50eca0fc9b2f9158fbeb9
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.3%2B72-desktop/flatpak/icon/128x128.png
