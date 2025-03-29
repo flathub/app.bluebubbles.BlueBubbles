@@ -220,7 +220,7 @@ modules:
         sha256: 5d6d9484956c4feea3448bf6e17f1aebc88ba2f7b277f46ad8a740433e4db5c4
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/6f522cb288ddf9d8ef001370195566d6c1b386ee/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: 31465f273937f52b0e45f5f3fb3b506b3b0030d24bb50eca0fc9b2f9158fbeb9
+        sha256: d3c867e43f6264cad702dfbef0add7aed7307d9b730d514ee14a60d8d513012a
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.3%2B72-desktop/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
