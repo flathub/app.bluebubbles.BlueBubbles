@@ -142,8 +142,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/google/shaderc.git
-                tag: v2025.1
-                commit: 0968768c61d4eb7dd861114412e904bb3d59b7b6
+                tag: v2025.2
+                commit: 3362e24c42ab5bf7ad32c0fec64b0a0ddeb2fda1
                 x-checker-data:
                   type: git
                   tag-pattern: ^v(\d{4}\.\d{1,2})$
@@ -167,8 +167,8 @@ modules:
                   url-template: https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-$version.tar.gz
               - type: git
                 url: https://github.com/KhronosGroup/glslang.git
-                tag: 15.2.0
-                commit: 99ee11b0106b48f06fb9e2a324ba928b8316cc33
+                tag: 15.3.0
+                commit: fc9889c889561c5882e83819dcaffef5ed45529b
                 dest: third_party/glslang
                 x-checker-data:
                   type: git
