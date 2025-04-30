@@ -167,8 +167,8 @@ modules:
                   url-template: https://github.com/KhronosGroup/SPIRV-Headers/archive/refs/tags/vulkan-sdk-$version.tar.gz
               - type: git
                 url: https://github.com/KhronosGroup/glslang.git
-                tag: 15.2.0
-                commit: 99ee11b0106b48f06fb9e2a324ba928b8316cc33
+                tag: 15.3.0
+                commit: fc9889c889561c5882e83819dcaffef5ed45529b
                 dest: third_party/glslang
                 x-checker-data:
                   type: git
