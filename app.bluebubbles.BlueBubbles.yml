@@ -155,22 +155,22 @@ modules:
         only_arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.5%2B74-desktop/bluebubbles-linux-x86_64.tar.gz
-        sha256: a0c9508f82846fe98bf669a92dd54261db932a462cb85d4b44943a9f97134e90
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.6%2B75-desktop/bluebubbles-linux-x86_64.tar.gz
+        sha256: ad8ee149ebb77543c4ad61bc98ba75265865488a6d1650099ecaf91e20a21d18
       - type: archive
         only_arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.5%2B74-desktop/bluebubbles-linux-aarch64.tar.gz
-        sha256: d550e577af82aca73fa1b638e8a7e2694b3396266d549935c17e4223f5e0f210
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.6%2B75-desktop/bluebubbles-linux-aarch64.tar.gz
+        sha256: 5de849d341581419d37863199f09687d83bf21277abbf22ab395b90b76b94721
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.5%2B74-desktop/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: f7def969077906de9e81683fc3a524ee351430423f350d182bbd2aae6a1419a6
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.6%2B75-desktop/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: a466b77e8d91a55239b635bd6eb91ea5cc7a81606a6e33907347fc09f056e7e4
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.5%2B74-desktop/flatpak/icon/128x128.png
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.6%2B75-desktop/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.5%2B74-desktop/flatpak/app.bluebubbles.BlueBubbles.desktop
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.6%2B75-desktop/flatpak/app.bluebubbles.BlueBubbles.desktop
         sha256: 28f10e1c68a5e27da72cb29619678d3dfdd4b38a753a2815a80d87972a380eda
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
