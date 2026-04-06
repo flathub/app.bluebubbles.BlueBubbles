@@ -18,7 +18,7 @@ finish-args:
   - --env=NOTIFY_IGNORE_PORTAL=1
   - --share=network
 modules:
-  - 'shared-modules/libappindicator/libappindicator-gtk3-12.10.json'
+  - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
   - name: xorg-libXmu
     sources:
       - type: git
@@ -110,14 +110,14 @@ modules:
         sources:
           - type: git
             url: https://code.videolan.org/videolan/libplacebo.git
-            tag: v7.349.0
-            commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+            tag: v7.360.1
+            commit: cee9b076f2c63104ccfd497fa79c39a867293ec4
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
           - type: patch
             path: patches/libplacebo-vulkan-utils_gen-python.patch
-        
+
   - name: fmedia
     buildsystem: simple
     only_arches:
