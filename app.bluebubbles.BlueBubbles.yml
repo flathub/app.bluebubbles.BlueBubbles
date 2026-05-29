@@ -17,7 +17,7 @@ finish-args:
   - --env=NOTIFY_IGNORE_PORTAL=1
   - --share=network
 modules:
-  - 'shared-modules/libappindicator/libappindicator-gtk3-12.10.json'
+  - 'shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json'
   - name: xorg-libXmu
     sources:
       - type: git
@@ -155,7 +155,7 @@ modules:
           - x86_64
         dest: bluebubbles
         url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B85-desktop-b.1/bluebubbles-linux-x86_64.tar.gz
-        sha256: 31d6494336fd7637102cc516afafae519bea385e821ae5f688c300fcf20c8279
+        sha256: 223fe85f84b6c2b61c116af137491c00371d1d93fdc87e19594789431f3bce0c
       - type: archive
         only-arches:
           - aarch64
