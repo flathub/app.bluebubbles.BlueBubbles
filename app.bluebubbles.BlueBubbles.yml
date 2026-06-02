@@ -61,6 +61,10 @@ modules:
       - -Dcplayer=false
       - -Dalsa=disabled
       - -Dmanpage-build=disabled
+      # Build mpv like normal distro packages: assertions off (NDEBUG). The
+      # default plain buildtype leaves them on, which turns a survivable bad
+      # crop (e.g. WSLg's broken VDPAU frames) into a fatal abort.
+      - -Db_ndebug=true
     build-options:
       libdir: /app/lib
     sources:
@@ -144,6 +148,8 @@ modules:
       - cp -r bluebubbles /app/
       - mkdir -p /app/bin
       - ln -s /app/bluebubbles/bluebubbles /app/bin/bluebubbles
+      - chmod +x /app/bluebubbles/bluebubbles
+      - chmod +x /app/bin/bluebubbles
       - install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install -Dm644 app.bluebubbles.BlueBubbles.desktop -t /app/share/applications/
@@ -152,22 +158,22 @@ modules:
         only-arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B85-desktop-b.1/bluebubbles-linux-x86_64.tar.gz
-        sha256: 223fe85f84b6c2b61c116af137491c00371d1d93fdc87e19594789431f3bce0c
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B86-desktop-b.2/bluebubbles-linux-x86_64.tar.gz
+        sha256: 4748c32527c26e2c3bb42e577f421d28924d08b6b4f52c65d337bbf538ed1e9b
       - type: archive
         only-arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B85-desktop-b.1/bluebubbles-linux-aarch64.tar.gz
-        sha256: 9393e93e669c9322fd2ec92c67ed60c1c8ccb92a3a8bb7e0c35927ae22eae542
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B86-desktop-b.2/bluebubbles-linux-aarch64.tar.gz
+        sha256: 9fe4c05d9f12c227590b0570174a7d3a861036dff917b8f9a8565bdd8a301324
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B85-desktop-b.1/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: 708ae6c26cf0530e039bbdb7e95253571c73a7679a61baab73dd19a23328f96d
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: f27d4b6e7b1fc2d7188a544c7b7d51cb09c2e8e508df44fb83cc2dc7ef772f5b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B85-desktop-b.1/flatpak/icon/128x128.png
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B85-desktop-b.1/flatpak/app.bluebubbles.BlueBubbles.desktop
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/app.bluebubbles.BlueBubbles.desktop
         sha256: 575c8f4c1151f5a90e237094f3acef4197810f8d5dac02883931e9de9d6d9363
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
