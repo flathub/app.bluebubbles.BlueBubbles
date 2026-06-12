@@ -158,22 +158,22 @@ modules:
         only-arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B86-desktop-b.2/bluebubbles-linux-x86_64.tar.gz
-        sha256: 4748c32527c26e2c3bb42e577f421d28924d08b6b4f52c65d337bbf538ed1e9b
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B87-desktop-b.3/bluebubbles-linux-x86_64.tar.gz
+        sha256: 49f592658692d68b6447edb9cbdeb39d33ca74e4b12d351ad5d811e4b3b2ed4c
       - type: archive
         only-arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B86-desktop-b.2/bluebubbles-linux-aarch64.tar.gz
-        sha256: 9fe4c05d9f12c227590b0570174a7d3a861036dff917b8f9a8565bdd8a301324
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B87-desktop-b.3/bluebubbles-linux-aarch64.tar.gz
+        sha256: 1d4abfe32c9451ab6b8a7b008c607776953f8ced842efe99e89990a47c2b6476
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: f27d4b6e7b1fc2d7188a544c7b7d51cb09c2e8e508df44fb83cc2dc7ef772f5b
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B87-desktop-b.3/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: 713856474d0172facb902f2d5b93b425c05bfb3d4a138f2a0c338418726570f9
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/icon/128x128.png
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B87-desktop-b.3/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B86-desktop-b.2/flatpak/app.bluebubbles.BlueBubbles.desktop
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B87-desktop-b.3/flatpak/app.bluebubbles.BlueBubbles.desktop
         sha256: 575c8f4c1151f5a90e237094f3acef4197810f8d5dac02883931e9de9d6d9363
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
@@ -187,14 +187,14 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7857/pdfium-linux-x64.tgz
-        sha256: 2ad1fd4237cd491201ac74a72388199b9dcf546c5cb02d8fea700725a1b80541
+        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7881/pdfium-linux-x64.tgz
+        sha256: 1470e21b8b4a3b4ad7f85684e2da11d94f3b69a86d81dee11b9b6709d927ac1d
         dest: libpdfium
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7857/pdfium-linux-arm64.tgz
-        sha256: 0e24373e73c50759136196c0078db8656860c8d03a10b2cb4a2e7b72d8068e35
+        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7881/pdfium-linux-arm64.tgz
+        sha256: ee7f7b7d5468958336a818c1cd580bdd20972846b7377b13f9a923d92d1d4674
         dest: libpdfium
 cleanup:
   - /include
