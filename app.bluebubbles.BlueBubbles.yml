@@ -1,6 +1,6 @@
 app-id: app.bluebubbles.BlueBubbles
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 command: bluebubbles
 separate-locales: false
@@ -11,20 +11,19 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
   - --system-talk-name=org.freedesktop.NetworkManager
-  - --system-talk-name=org.freedesktop.NetworkManager.Connection.Active
-  - --system-talk-name=org.freedesktop.FileManager1
+  - --talk-name=org.freedesktop.FileManager1
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --env=NOTIFY_IGNORE_PORTAL=1
   - --share=network
 modules:
-  - 'shared-modules/libappindicator/libappindicator-gtk3-12.10.json'
+  - 'shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json'
   - name: xorg-libXmu
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/xorg/lib/libxmu.git
-        tag: libXmu-1.2.1
-        commit: 792f80402ee06ce69bca3a8f2a84295999c3a170
+        tag: libXmu-1.3.1
+        commit: cdf280f6611932f79ab872832974e8043b1cad6d
   - name: wmctrl
     sources:
       - type: git
@@ -38,13 +37,13 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/objectbox/objectbox-c/releases/download/v5.0.0-rc/objectbox-linux-x64.tar.gz
-        sha256: 280195f19594227068fcf389d32d5b315c9a6daabc3115cd3aac9c3cc8ad39a8
+        url: https://github.com/objectbox/objectbox-c/releases/download/v5.3.1/objectbox-linux-x64.tar.gz
+        sha256: d1a22f5a43e8aa438c987524c2ef97f5d179acb991b0f63ab03a30c33b882368
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/objectbox/objectbox-c/releases/download/v5.0.0-rc/objectbox-linux-aarch64.tar.gz
-        sha256: d11d7be8b5ff9cac361de050f634be02f82571b0a16c76da0ca33cf2adc2613e
+        url: https://github.com/objectbox/objectbox-c/releases/download/v5.3.1/objectbox-linux-aarch64.tar.gz
+        sha256: 948fe456904b8b0ae6b22a26a9f460734dc3c2ec58750df3a329ccae1ebe035d
   - name: libidn
     config-opts:
       - --disable-static
@@ -62,6 +61,10 @@ modules:
       - -Dcplayer=false
       - -Dalsa=disabled
       - -Dmanpage-build=disabled
+      # Build mpv like normal distro packages: assertions off (NDEBUG). The
+      # default plain buildtype leaves them on, which turns a survivable bad
+      # crop (e.g. WSLg's broken VDPAU frames) into a fatal abort.
+      - -Db_ndebug=true
     build-options:
       libdir: /app/lib
     sources:
@@ -110,17 +113,15 @@ modules:
         sources:
           - type: git
             url: https://code.videolan.org/videolan/libplacebo.git
-            tag: v7.349.0
-            commit: 1fd3c7bde7b943fe8985c893310b5269a09b46c5
+            tag: v7.360.1
+            commit: cee9b076f2c63104ccfd497fa79c39a867293ec4
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
-          - type: patch
-            path: patches/libplacebo-vulkan-utils_gen-python.patch
         
   - name: fmedia
     buildsystem: simple
-    only_arches:
+    only-arches:
       - x86_64
     build-commands:
       - mkdir -p /app/bin
@@ -147,31 +148,33 @@ modules:
       - cp -r bluebubbles /app/
       - mkdir -p /app/bin
       - ln -s /app/bluebubbles/bluebubbles /app/bin/bluebubbles
+      - chmod +x /app/bluebubbles/bluebubbles
+      - chmod +x /app/bin/bluebubbles
       - install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install -Dm644 app.bluebubbles.BlueBubbles.desktop -t /app/share/applications/
     sources:
       - type: archive
-        only_arches:
+        only-arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.7%2B76-desktop/bluebubbles-linux-x86_64.tar.gz
-        sha256: 80e421d77e463cad75fa0fc73577fdbf6a99d7c1c80d9dc939bdbba4053a9bd4
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B89/bluebubbles-linux-x86_64.tar.gz
+        sha256: 75f6d31ba798f7c2c3de1ab94818b7ef3be8a14b8e014b0c9728f07b1018076a
       - type: archive
-        only_arches:
+        only-arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v1.15.7%2B76-desktop/bluebubbles-linux-aarch64.tar.gz
-        sha256: c850cf686c449c6f6c1628a7ed01e47761f4d1dfd5275904716a4c63f56a3396
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.0.0%2B89/bluebubbles-linux-aarch64.tar.gz
+        sha256: 83debb7b908efc156590c18ebf39c49dc9579b5fb5d124e1fa0cd407e1b0e2cd
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.7%2B76-desktop/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: cffeb7d6baf2e230847b659449d9decbc1685f79637e63a1509c100189a46e37
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B89/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: 5e7ff6b2bdf57f8f2f1d61fe40288690b41756f3c74777ad57d438d13fd8dfd6
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.7%2B76-desktop/flatpak/icon/128x128.png
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B89/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v1.15.7%2B76-desktop/flatpak/app.bluebubbles.BlueBubbles.desktop
-        sha256: 28f10e1c68a5e27da72cb29619678d3dfdd4b38a753a2815a80d87972a380eda
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.0.0%2B89/flatpak/app.bluebubbles.BlueBubbles.desktop
+        sha256: 575c8f4c1151f5a90e237094f3acef4197810f8d5dac02883931e9de9d6d9363
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
       - /bluebubbles/data/flutter_assets/packages/record_web/
@@ -182,16 +185,16 @@ modules:
       - mv libpdfium/libpdfium.so /app/bluebubbles/lib
     sources:
       - type: archive
-        only_arches:
+        only-arches:
           - x86_64
-        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7763/pdfium-linux-x64.tgz
-        sha256: e3f0c66b2daad710cb6c8edd4a8c45c8902995e359dc0775917fc16e2e56349d
+        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7961/pdfium-linux-x64.tgz
+        sha256: 019665c8877d46fe65f625f80fd714ab07aac68554b0636acf2a2adf9288adb2
         dest: libpdfium
       - type: archive
-        only_arches:
+        only-arches:
           - aarch64
-        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7763/pdfium-linux-arm64.tgz
-        sha256: 1518d09bbf09a1bef27a6f93656d95b55bd22bcaecda597679e05f4e82c5fbfa
+        url: https://github.com/bblanchon/pdfium-binaries/releases/download/chromium%2F7961/pdfium-linux-arm64.tgz
+        sha256: 974107999784a438149605024475d42d80dd306799d90e1af5f6fa63f976455f
         dest: libpdfium
 cleanup:
   - /include
