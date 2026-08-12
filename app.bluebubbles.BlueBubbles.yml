@@ -15,6 +15,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --env=NOTIFY_IGNORE_PORTAL=1
+  - --env=LD_LIBRARY_PATH=/app/bluebubbles/lib
   - --share=network
 modules:
   - 'shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json'
@@ -29,21 +30,6 @@ modules:
       - type: git
         url: https://github.com/dancor/wmctrl.git
         commit: 0181e8e4a7ed98255f6ef930875e56560f19aa95
-  - name: objectbox
-    buildsystem: simple
-    build-commands:
-      - cp -r libobjectbox.so /app/lib/
-    sources:
-      - type: archive
-        only-arches:
-          - x86_64
-        url: https://github.com/objectbox/objectbox-c/releases/download/v5.3.1/objectbox-linux-x64.tar.gz
-        sha256: d1a22f5a43e8aa438c987524c2ef97f5d179acb991b0f63ab03a30c33b882368
-      - type: archive
-        only-arches:
-          - aarch64
-        url: https://github.com/objectbox/objectbox-c/releases/download/v5.3.1/objectbox-linux-aarch64.tar.gz
-        sha256: 948fe456904b8b0ae6b22a26a9f460734dc3c2ec58750df3a329ccae1ebe035d
   - name: libidn
     config-opts:
       - --disable-static
