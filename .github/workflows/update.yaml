@@ -1,13 +1,6 @@
 name: Check for updates
 
-# Replaces Flathub's hosted checker (disabled via flathub.json)
 on:
-  # Fired by bluebubbles-app's desktop-builds workflow
-  repository_dispatch:
-    types: [upstream-release]
-  # Catches dependency bumps
-  schedule:
-    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
