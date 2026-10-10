@@ -127,28 +127,30 @@ modules:
         only-arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.1%2B91/bluebubbles-linux-x86_64.tar.gz
-        sha256: 87354e08083067b920faa400a13175804c81ff52a3f1430d8c7ecf9cf0cde619
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.2%2B92/bluebubbles-linux-x86_64.tar.gz
+        sha256: 833a5fe56dfe93a1644878bdc894832e62fca6840c6e0588b9d35e19bd04d667
         x-checker-data:
           type: json
           is-main-source: true
           url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "bluebubbles-linux-x86_64.tar.gz") | .browser_download_url
+          url-query: .assets[] | select(.name == "bluebubbles-linux-x86_64.tar.gz")
+            | .browser_download_url
       - type: archive
         only-arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.1%2B91/bluebubbles-linux-aarch64.tar.gz
-        sha256: 4528481bc5cabd9eb95963c5c83360df418b2a30141ac54c1a77b3e29b1fe135
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.2%2B92/bluebubbles-linux-aarch64.tar.gz
+        sha256: 2535bb4b23484a74f5d66a94b9a5f3bd6177f5a525bf82f2dd824934e9df0089
         x-checker-data:
           type: json
           url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "bluebubbles-linux-aarch64.tar.gz") | .browser_download_url
+          url-query: .assets[] | select(.name == "bluebubbles-linux-aarch64.tar.gz")
+            | .browser_download_url
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.1%2B91/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: 031cc2ba427bc3053d2b9e74cc408a1429a86285f0e07076a53b09e1ecd06600
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.2%2B92/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: 66ffd05dbb3b90c8105cbdde70df82dfa13f241e6d53adb24f3effc5ecd3dce0
         x-checker-data:
           type: json
           url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
