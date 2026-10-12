@@ -132,9 +132,9 @@ modules:
         x-checker-data:
           type: json
           is-main-source: true
-          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "bluebubbles-linux-x86_64.tar.gz")
+          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
+          version-query: first(.[] | select((.draft or .prerelease) | not)) | .tag_name | sub("^v"; "")
+          url-query: first(.[] | select((.draft or .prerelease) | not)) | .assets[] | select(.name == "bluebubbles-linux-x86_64.tar.gz")
             | .browser_download_url
       - type: archive
         only-arches:
@@ -144,36 +144,36 @@ modules:
         sha256: 2535bb4b23484a74f5d66a94b9a5f3bd6177f5a525bf82f2dd824934e9df0089
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "bluebubbles-linux-aarch64.tar.gz")
+          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
+          version-query: first(.[] | select((.draft or .prerelease) | not)) | .tag_name | sub("^v"; "")
+          url-query: first(.[] | select((.draft or .prerelease) | not)) | .assets[] | select(.name == "bluebubbles-linux-aarch64.tar.gz")
             | .browser_download_url
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.2%2B92/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
         sha256: 66ffd05dbb3b90c8105cbdde70df82dfa13f241e6d53adb24f3effc5ecd3dce0
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: '"https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
+          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
+          version-query: first(.[] | select((.draft or .prerelease) | not)) | .tag_name | sub("^v"; "")
+          url-query: 'first(.[] | select((.draft or .prerelease) | not)) | "https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
             + (.tag_name | @uri) + "/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml"'
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.1%2B91/flatpak/icon/128x128.png
         sha256: 9fc90e23472662301346fa83255c4288c76e723464a2ed2896a46ead19cf320b
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: '"https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
+          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
+          version-query: first(.[] | select((.draft or .prerelease) | not)) | .tag_name | sub("^v"; "")
+          url-query: 'first(.[] | select((.draft or .prerelease) | not)) | "https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
             + (.tag_name | @uri) + "/flatpak/icon/128x128.png"'
       - type: file
         url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.1%2B91/flatpak/app.bluebubbles.BlueBubbles.desktop
         sha256: 575c8f4c1151f5a90e237094f3acef4197810f8d5dac02883931e9de9d6d9363
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases/latest
-          version-query: .tag_name | sub("^v"; "")
-          url-query: '"https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
+          url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
+          version-query: first(.[] | select((.draft or .prerelease) | not)) | .tag_name | sub("^v"; "")
+          url-query: 'first(.[] | select((.draft or .prerelease) | not)) | "https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
             + (.tag_name | @uri) + "/flatpak/app.bluebubbles.BlueBubbles.desktop"'
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
