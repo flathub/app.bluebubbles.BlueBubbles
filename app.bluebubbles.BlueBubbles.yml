@@ -15,7 +15,6 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --env=NOTIFY_IGNORE_PORTAL=1
-  - --env=LD_LIBRARY_PATH=/app/bluebubbles/lib
   - --share=network
 modules:
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
