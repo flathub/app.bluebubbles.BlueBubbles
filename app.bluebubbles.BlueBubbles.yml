@@ -126,8 +126,8 @@ modules:
         only-arches:
           - x86_64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.5%2Bdesktop.95/bluebubbles-linux-x86_64.tar.gz
-        sha256: d26151c9dc8ab0c15b70b245318a6d51bc5138bad659cab7942de4a00e4bf5cd
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.6%2Bdesktop.96/bluebubbles-linux-x86_64.tar.gz
+        sha256: 10d52a9c1f9180ec8ae2e180bf9d52070f39d6f4d4da63526ca7ba1406603150
         x-checker-data:
           type: json
           is-main-source: true
@@ -142,8 +142,8 @@ modules:
         only-arches:
           - aarch64
         dest: bluebubbles
-        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.5%2Bdesktop.95/bluebubbles-linux-aarch64.tar.gz
-        sha256: 7ed96c817f3c73df2a9ee63e180c99685529274cd3f798cea671d3a2a35658a1
+        url: https://github.com/BlueBubblesApp/bluebubbles-app/releases/download/v2.1.6%2Bdesktop.96/bluebubbles-linux-aarch64.tar.gz
+        sha256: bd92dd372c6c495bf79a86d90f3ed7cd2dc73b00866ca632636e68aa1dac1d20
         x-checker-data:
           type: json
           url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
@@ -154,8 +154,8 @@ modules:
             | last | contains("android"))) | not)) | .assets[] | select(.name == "bluebubbles-linux-aarch64.tar.gz")
             | .browser_download_url
       - type: file
-        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.5%2Bdesktop.95/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
-        sha256: 46327c6d979049a27cb18ca7ac893eac0a6185cf1662de8f1da2df155d25cc07
+        url: https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/v2.1.6%2Bdesktop.96/flatpak/app.bluebubbles.BlueBubbles.metainfo.xml
+        sha256: 358656d720134c5851546e3b802d0225929f79fd0adaeaefa77571d085a2ec3d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/BlueBubblesApp/bluebubbles-app/releases
