@@ -16,6 +16,7 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --env=NOTIFY_IGNORE_PORTAL=1
   - --share=network
+  - --env=FONTCONFIG_FILE=/app/etc/fonts/fonts.conf # see fontconfig-no-host-cache.sh
 modules:
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
   - name: xorg-libXmu
@@ -121,6 +122,8 @@ modules:
       - install -Dm644 app.bluebubbles.BlueBubbles.metainfo.xml -t /app/share/metainfo/
       - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install -Dm644 app.bluebubbles.BlueBubbles.desktop -t /app/share/applications/
+      - mkdir -p /app/etc/fonts
+      - sh fontconfig-no-host-cache.sh > /app/etc/fonts/fonts.conf
     sources:
       - type: archive
         only-arches:
@@ -189,6 +192,8 @@ modules:
           url-query: first(.[] | select((.draft or .prerelease or (.tag_name | split("+")
             | last | contains("android"))) | not)) | "https://raw.githubusercontent.com/BlueBubblesApp/bluebubbles-app/refs/tags/"
             + (.tag_name | @uri) + "/flatpak/app.bluebubbles.BlueBubbles.desktop"
+      - type: file
+        path: fontconfig-no-host-cache.sh
     cleanup:
       - /bluebubbles/data/flutter_assets/packages/media_kit/
       - /bluebubbles/data/flutter_assets/packages/record_web/
